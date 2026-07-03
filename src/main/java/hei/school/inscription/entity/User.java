@@ -2,10 +2,14 @@ package hei.school.inscription.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -19,4 +23,8 @@ public class User {
     private String lastName;
     private String userName;
     private String email;
+
+    @ManyToMany
+    @JoinColumn(name = "course_id")
+    private List<Course> course;
 }
