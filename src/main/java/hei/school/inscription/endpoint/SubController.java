@@ -20,7 +20,7 @@ public class SubController {
     @PostMapping("/sub")
     @SneakyThrows
     public String subscribe(@RequestBody UserDto userDto) {
-        var event = SendEmailRequested.builder().to(userDto.getEmail()).build();
+        var event = SendEmailRequested.builder().userDto(userDto).build();
         eventProducer.accept(List.of(event));
         return "You are subscribe";
     }

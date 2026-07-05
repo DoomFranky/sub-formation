@@ -24,7 +24,6 @@ public class User {
     private String userName;
     private String email;
 
-    @ManyToMany
-    @JoinColumn(name = "course_id")
-    private List<Course> course;
+    @ManyToMany(mappedBy="users")
+    private List<Course> courses;
 }

@@ -21,7 +21,6 @@ public class Course {
     private String title;
     private Instant start;
     private Instant end;
-    @ManyToMany
-    @JoinColumn(name = "user_id")
-    private List<User> user;
+    @ManyToMany(mappedBy="courses")
+    private List<User> users;
 }
