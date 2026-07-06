@@ -1,9 +1,6 @@
 package hei.school.inscription.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,14 +13,14 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class User {
+@Table(name = "userStudent")
+public class UserStudent {
     @Id
     private String id;
     private String firstName;
     private String lastName;
     private String userName;
     private String email;
-
-    @ManyToMany(mappedBy="users")
+    @ManyToMany
     private List<Course> courses;
 }

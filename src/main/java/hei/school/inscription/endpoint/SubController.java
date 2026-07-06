@@ -5,6 +5,7 @@ import hei.school.inscription.endpoint.event.EventProducer;
 import hei.school.inscription.endpoint.event.model.SendEmailRequested;
 import hei.school.inscription.mail.Email;
 import hei.school.inscription.mail.Mailer;
+import hei.school.inscription.service.SubService;
 import jakarta.mail.internet.InternetAddress;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
@@ -16,12 +17,12 @@ import java.util.List;
 @AllArgsConstructor
 public class SubController {
     private final EventProducer<SendEmailRequested> eventProducer;
+    private final SubService subService;
 
     @PostMapping("/sub")
     @SneakyThrows
     public String subscribe(@RequestBody UserDto userDto) {
-        var event = SendEmailRequested.builder().userDto(userDto).build();
-        eventProducer.accept(List.of(event));
+        subService.postSubscribe(userDto);
         return "You are subscribe";
     }
 }

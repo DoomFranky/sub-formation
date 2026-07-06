@@ -16,7 +16,7 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = false)
 @ToString
 public class SendEmailRequested extends PojaEvent {
-    private UserDto userDto;
+    private String to;
 
     @Override
     public Duration maxConsumerDuration() {

@@ -15,12 +15,13 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
+@Table(name = "course")
 public class Course {
     @Id
     private String id;
     private String title;
-    private Instant start;
-    private Instant end;
+    private Instant startDate;
+    private Instant endDate;
     @ManyToMany(mappedBy="courses")
-    private List<User> users;
+    private List<UserStudent> users;
 }
