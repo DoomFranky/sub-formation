@@ -22,7 +22,7 @@ public class SendEmailRequestedService implements Consumer<SendEmailRequested> {
   public void accept(SendEmailRequested sendEmailRequested) {
     try {
       // emailValidator.validEmail(sendEmailRequested.getTo());
-      InternetAddress recipientAddress = new InternetAddress();
+      InternetAddress recipientAddress = new InternetAddress(sendEmailRequested.getTo());
       mailer.accept(
           new Email(
               recipientAddress,
