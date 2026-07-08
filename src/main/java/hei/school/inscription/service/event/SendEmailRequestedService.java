@@ -21,7 +21,7 @@ public class SendEmailRequestedService implements Consumer<SendEmailRequested> {
   @Override
   public void accept(SendEmailRequested sendEmailRequested) {
     try {
-      emailValidator.validEmail(sendEmailRequested.getTo());
+      //emailValidator.validEmail(sendEmailRequested.getTo());
       InternetAddress recipientAddress = new InternetAddress();
       mailer.accept(
           new Email(
