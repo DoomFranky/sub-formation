@@ -17,7 +17,8 @@ public class SubService {
   private final UserMapper userMapper;
 
   public void postSubscribe(UserDto userDto) {
-    var event = SendEmailRequested.builder().to(userDto.getEmail()).build();
+
+    var event = SendEmailRequested.builder().userDto(userDto).build();
     eventProducer.accept(List.of(event));
 
     // userRepository.save(userMapper.dtoToEntity(userDto));

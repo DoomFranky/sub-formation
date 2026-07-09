@@ -1,5 +1,6 @@
 package hei.school.inscription.endpoint.event.model;
 
+import hei.school.inscription.dto.UserDto;
 import java.time.Duration;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,7 +16,7 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = false)
 @ToString
 public class SendEmailRequested extends PojaEvent {
-  private String to;
+  private UserDto userDto;
 
   @Override
   public Duration maxConsumerDuration() {
